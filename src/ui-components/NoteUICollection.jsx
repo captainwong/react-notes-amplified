@@ -16,7 +16,9 @@ import NoteUI from "./NoteUI";
 import { Collection } from "@aws-amplify/ui-react";
 export default function NoteUICollection(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
-  const itemsPagination = { sort: (s) => s.updatedAt(SortDirection.ASCENDING) };
+  const itemsPagination = {
+    sort: (s) => s.updatedAt(SortDirection.DESCENDING),
+  };
   const [items, setItems] = React.useState(undefined);
   const itemsDataStore = useDataStoreBinding({
     type: "collection",
