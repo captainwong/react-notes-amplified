@@ -1,25 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { CreateNote, NavBar, NoteUICollection, UpdateNote } from './ui-components';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar width='100%' marginBottom={20} />
+      <div className="container">
+        <NoteUICollection />
+      </div>
+      <div className="modal" style={{ display: 'none' }}>
+        <CreateNote />
+      </div>
+      <div className="modal" style={{ display: 'none' }}>
+        <UpdateNote />
+      </div>
+    </>
   );
 }
 
