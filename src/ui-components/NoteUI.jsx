@@ -6,10 +6,17 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import { Note } from "../models";
+import {
+  getOverrideProps,
+  useDataStoreDeleteAction,
+} from "@aws-amplify/ui-react/internal";
+import { schema } from "../models/schema";
 import { Flex, Icon, Text, View } from "@aws-amplify/ui-react";
 export default function NoteUI(props) {
-  const { overrides, ...rest } = props;
+  const { note, overrides, ...rest } = props;
+  const vectorThreeEightFourSixFourSixOneThreeOnClick =
+    useDataStoreDeleteAction({ id: note?.id, model: Note, schema: schema });
   return (
     <Flex
       gap="16px"
@@ -69,7 +76,7 @@ export default function NoteUI(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="T-Shirt"
+            children={note?.title}
             {...getOverrideProps(overrides, "T-Shirt")}
           ></Text>
           <Flex
@@ -158,6 +165,9 @@ export default function NoteUI(props) {
                 bottom="12.5%"
                 left="20.83%"
                 right="20.83%"
+                onClick={() => {
+                  vectorThreeEightFourSixFourSixOneThreeOnClick();
+                }}
                 {...getOverrideProps(overrides, "Vector38464613")}
               ></Icon>
             </View>
@@ -182,7 +192,7 @@ export default function NoteUI(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          children={note?.text}
           {...getOverrideProps(
             overrides,
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
