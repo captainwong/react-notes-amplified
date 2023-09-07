@@ -10,4 +10,12 @@ code from course `https://amplify.aws/learn/courses/Fullstack-for-Frontend-Devel
   * run `amplify codegen models` to generate `src/models`.
   * rum `amplify codegen statements` to generate `src/graphql`
   * rum `amplify codegen types` to generate `src/API.ts`
-
+- after added auth, `unauthorized` error occured. according to `https://stackoverflow.com/a/74879242/2963736`:
+  ```js
+  Amplify.configure({
+    ...config,
+    DataStore: {
+      authModeStrategyType: AuthModeStrategyType.MULTI_AUTH
+    }
+  });
+  ```
