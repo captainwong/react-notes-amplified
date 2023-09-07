@@ -18,8 +18,8 @@ function App({signOut}: WithAuthenticatorProps) {
           Button38464639: { onClick: () => setShowCreateModal(true) },
           Button38464640: {
             onClick: async () => {
-              await DataStore.clear();
               signOut?.();
+              await DataStore.clear();
             }
           }
         }}

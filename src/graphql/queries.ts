@@ -13,6 +13,7 @@ export const getNote = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
+      owner
       __typename
     }
   }
@@ -33,6 +34,7 @@ export const listNotes = /* GraphQL */ `
         _version
         _deleted
         _lastChangedAt
+        owner
         __typename
       }
       nextToken
@@ -63,6 +65,7 @@ export const syncNotes = /* GraphQL */ `
         _version
         _deleted
         _lastChangedAt
+        owner
         __typename
       }
       nextToken

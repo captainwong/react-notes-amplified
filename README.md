@@ -8,5 +8,6 @@ code from course `https://amplify.aws/learn/courses/Fullstack-for-Frontend-Devel
 - While initializing model `Note`, make sure to deploy it, and make sure it has these auto-generated properties: `createdAt`, `updatedAt` 
 - after `amplify pull ...` you have to:
   * run `amplify codegen models` to generate `src/models`.
-  * rum `amplify codegen components` to generate `src/graphql`
+  * rum `amplify codegen statements` to generate `src/graphql`
+  * rum `amplify codegen types` to generate `src/API.ts`
 
