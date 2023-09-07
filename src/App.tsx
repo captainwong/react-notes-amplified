@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { CreateNote, NavBar, NoteUICollection, UpdateNote } from './ui-components';
 import { Note } from './models';
 import { withAuthenticator, WithAuthenticatorProps } from '@aws-amplify/ui-react';
+import { DataStore } from 'aws-amplify';
 
 function App({signOut}: WithAuthenticatorProps) {
   const [showCreateModal, setShowCreateModal] = useState(false);
@@ -15,7 +16,12 @@ function App({signOut}: WithAuthenticatorProps) {
         marginBottom={20}
         overrides={{
           Button38464639: { onClick: () => setShowCreateModal(true) },
-          Button38464640: { onClick: async () => { signOut?.() } }
+          Button38464640: {
+            onClick: async () => {
+              await DataStore.clear();
+              signOut?.();
+            }
+          }
         }}
       />
       <div className="container">
